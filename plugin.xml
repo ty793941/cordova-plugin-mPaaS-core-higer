@@ -14,11 +14,11 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="mPaaSCore">
-                <param name="android-package" value="cordova-plugin-mPaaS-core-higer.mPaaSCore" />
+                <param name="android-package" value="higer.plugin.mpaas.core.core" />
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
-        <source-file src="src/android/mpaascore/mPaaSCore.java" target-dir="src/cordova-plugin-mPaaS-core-higer/mPaaSCore" />
+        <source-file src="src/android/core/core.java" target-dir="src/higer/plugin/mpaas/core" />
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
