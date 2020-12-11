@@ -1,0 +1,8 @@
+{
+  "name": "mpaascore",
+  "version": "1.0.0",
+  "description": "cordova中的mpaas组件 使用的核心插件。",
+  "main": "index.js",
+  "author": "higer.zhang",
+  "license": "ISC"
+}

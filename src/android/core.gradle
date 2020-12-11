@@ -1,0 +1,26 @@
+
+
+apply plugin: 'com.alipay.apollo.optimize'
+
+buildscript {
+    ext.mpaas_artifact = "mpaas-baseline"
+    ext.mpaas_baseline = "10.1.68-18"
+
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+        maven {
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.boost.easyconfig:easyconfig:2.4.5'
+    }
+}
