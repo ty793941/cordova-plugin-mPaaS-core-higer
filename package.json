@@ -2,6 +2,12 @@
   "name": "cordova-plugin-mpaas-core-higer",
   "version": "1.0.2",
   "description": "cordova中的mpaas组件 使用的核心插件。",
+  "cordova": {
+    "id": "cordova-plugin-mpaas-core-higer",
+    "platforms": [
+      "android"
+    ]
+  },
   "main": "index.js",
   "author": "higer.zhang",
   "license": "ISC",
