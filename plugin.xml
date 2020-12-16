@@ -4,12 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>mPaaSCore</name>
     <hook type="after_plugin_install" src="scripts/afterPluginInstall.js" />
-    <hook type="before_compile" src="scripts/checkAndCopyConfig.js" />
+    <hook type="before_plugin_rm" src="scripts/beforePluginRemove.js" />
     <hook type="before_build" src="scripts/checkAndCopyConfig.js" />
     <hook type="before_run" src="scripts/checkAndCopyConfig.js" />
     <hook type="before_serve" src="scripts/checkAndCopyConfig.js" />
     <js-module name="mPaaSCore" src="www/mPaaSCore.js">
-        <clobbers target="cordova.plugins.mPaaSCore" />
+        <clobbers target="mPaaS" />
     </js-module>
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
@@ -26,6 +26,10 @@
                 <param name="ios-package" value="mPaaSCore" />
             </feature>
         </config-file>
-        <source-file src="src/ios/mPaaSCore.m" />
+        <header-file src="src/ios/Mpaas/Targets/project/mPaaS-Headers.h" />
+
+
+
+
     </platform>
 </plugin>
