@@ -26,8 +26,6 @@
                 <param name="ios-package" value="mPaaSCore" />
             </feature>
         </config-file>
-        <header-file src="src/ios/Mpaas/Targets/project/mPaaS-Headers.h" />
-
 
 
 
