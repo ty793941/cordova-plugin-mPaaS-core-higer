@@ -1,0 +1,3 @@
+plugin "cocoapods-mPaaS"
+source "https://code.aliyun.com/mpaas-public/podspecs.git"
+mPaaS_baseline '10.1.68'
