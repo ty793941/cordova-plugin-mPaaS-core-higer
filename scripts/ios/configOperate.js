@@ -1,6 +1,5 @@
 var fs = require('fs-extra');
 var path = require('path');
-var CordovaError = require('cordova-common').CordovaError;
 var config = require('../config')
 
 let iosPlatformDir = config.iosPlatformDir;
