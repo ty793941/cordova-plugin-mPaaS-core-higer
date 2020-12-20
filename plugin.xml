@@ -3,16 +3,11 @@
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>mPaaSCore</name>
-    <hook type="after_plugin_install" src="scripts/afterPluginInstall.js" />
-    <!-- <hook type="before_plugin_install" src="scripts/beforePluginInstall.js" /> -->
-    <hook type="before_plugin_rm" src="scripts/beforePluginRemove.js" />
-    <hook type="before_build" src="scripts/checkAndCopyConfig.js" />
-    <hook type="before_run" src="scripts/checkAndCopyConfig.js" />
-    <hook type="before_serve" src="scripts/checkAndCopyConfig.js" />
-    <hook type="after_plugin_install" src="scripts/checkAndCopyConfig.js" />
-    <js-module name="mPaaSCore" src="www/mPaaSCore.js">
-        <clobbers target="mPaaS" />
-    </js-module>
+    <hook type="before_plugin_install" src="scripts/pluginInstall.js" />
+    <hook type="before_plugin_rm" src="scripts/pluginRemove.js" />
+    <hook type="before_build" src="scripts/pluginInstall.js" />
+    <hook type="before_run" src="scripts/pluginInstall.js" />
+    <hook type="before_serve" src="scripts/pluginInstall.js" /> 
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="mPaaSCore">
@@ -28,10 +23,5 @@
                 <param name="ios-package" value="mPaaSCore" />
             </feature>
         </config-file>
-
-<!-- //动态引入自己的框架 -->
-<!-- <framework src="relative/path/to/my.framework" custom="true" /> -->
-
-
     </platform>
 </plugin>
