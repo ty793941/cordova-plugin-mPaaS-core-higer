@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-mpaas-core-higer",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "cordova中的mpaas组件 使用的核心插件。",
   "cordova": {
     "id": "cordova-plugin-mpaas-core-higer",

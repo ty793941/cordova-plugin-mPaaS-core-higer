@@ -70,12 +70,15 @@ exports.setPodfile = function () {
 exports.removePodfile = function()
 {
     console.log('----------begin mpaas ios core podfile remove----------')
-
+    if (!fs.existsSync(iosPlatformDir)) {
+        console.error("********************plugin not found the ios platform,and the mPaaS core podfile not need to be removed");
+        return;
+    }
     //ios平台根目录
     var project_dir = iosPlatformDir;
     //找到项目名称
     var project_name = getXcodeCordovaProj();
-    let podfileName = "Podfile"
+    let podfileName = "Podfile";
 
     //找到ios平台下到podfile.
     let podfileFilePath = path.join(project_dir, 'Podfile');
