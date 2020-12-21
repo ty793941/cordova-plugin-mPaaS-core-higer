@@ -12,12 +12,15 @@ let iosPlatformDir = config.iosPlatformDir;
 //插件所在的位置,一般为"CordovaRoot/plugins/mPaaSCore"
 let iosPluginDir = config.iosPluginSourceDir;
 
-let xcodeProjDir_array = fs.readdirSync(iosPlatformDir).filter(function (e) { return e.match(/\.xcodeproj$/i); });
-let xcodeProjDir = xcodeProjDir_array[0];
-let cordovaProjName = xcodeProjDir.substring(xcodeProjDir.lastIndexOf(path.sep) + 1, xcodeProjDir.indexOf('.xcodeproj'));
-let xcodeCordovaProj = path.join(iosPlatformDir, cordovaProjName);
+let getXcodeCordovaProj=function(){
+    let xcodeProjDir_array = fs.readdirSync(iosPlatformDir).filter(function (e) { return e.match(/\.xcodeproj$/i); });
+    let xcodeProjDir = xcodeProjDir_array[0];
+    let cordovaProjName = xcodeProjDir.substring(xcodeProjDir.lastIndexOf(path.sep) + 1, xcodeProjDir.indexOf('.xcodeproj'));
+    let xcodeCordovaProj = path.join(iosPlatformDir, cordovaProjName);
+    return xcodeCordovaProj.split('/').pop();
+}
 
-var check_reqs = require(iosPlatformDir + '/cordova/lib/check_reqs');
+
 
 exports.setPodfile = function () {
     console.log('\r\n----------begin mpaas ios core podfile install----------')
@@ -29,7 +32,7 @@ exports.setPodfile = function () {
     var project_dir = iosPlatformDir;
 
     //找到项目名称
-    var project_name = xcodeCordovaProj.split('/').pop();
+    var project_name = getXcodeCordovaProj();
 
     //找到ios平台下到podfile.
     let podfileFilePath = path.join(project_dir, 'Podfile');
@@ -54,6 +57,8 @@ exports.setPodfile = function () {
 
     var Podfile = require(path.join(iosPlatformDir + '/cordova/lib/Podfile')).Podfile;
     var podfileFile = new Podfile(path.join(project_dir, podfileName), project_name);
+    
+    var check_reqs = require(iosPlatformDir + '/cordova/lib/check_reqs');
     // 写完后再执行下install
     podfileFile.install(check_reqs.check_cocoapods);
 
@@ -69,7 +74,7 @@ exports.removePodfile = function()
     //ios平台根目录
     var project_dir = iosPlatformDir;
     //找到项目名称
-    var project_name = xcodeCordovaProj.split('/').pop();
+    var project_name = getXcodeCordovaProj();
     let podfileName = "Podfile"
 
     //找到ios平台下到podfile.
@@ -88,6 +93,9 @@ exports.removePodfile = function()
     
     var Podfile = require(path.join(iosPlatformDir + '/cordova/lib/Podfile')).Podfile;
     var podfileFile = new Podfile(path.join(project_dir, podfileName), project_name);
+
+    
+    var check_reqs = require(iosPlatformDir + '/cordova/lib/check_reqs');
     // 写完后再执行下install
     podfileFile.install(check_reqs.check_cocoapods);
 

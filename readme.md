@@ -26,7 +26,7 @@
 > cordova plugins add cordova-plugin-mpaas-core-higer
 
 ### 2. 复制config文件
-通过[阿里云官方](https://help.aliyun.com/document_detail/164968.html?spm=a2c4g.11186623.6.569.3e6434b61nIh5E)的步骤下载配置文件，类似(Ant-mpaas-XXXXX-default-android.config)，复制整个文件到cordova根目录的mPaas文件夹（需新建），并别名为mPaas.config，不然会报找不到该文件的错误。
+通过[阿里云官方](https://help.aliyun.com/document_detail/164968.html?spm=a2c4g.11186623.6.569.3e6434b61nIh5E)的步骤下载配置文件，类似(Ant-mpaas-XXXXX-default-android.config)，复制整个文件到cordova根目录的mpaas文件夹（需新建），并别名为mPaas.config，不然会报找不到该文件的错误。
 
 ## 热点问题
 #### 1.plugin 安装时 pod install 时出错，只有返回错误代码1提示
@@ -48,5 +48,9 @@
          </config-file>
     >
 
+#### 4.在build的时候，长时间没有反应
+    正常现象：
+    1.第一次cordova build android时，需要下载gradle，一般需要10来分钟，也可以手工下载，放置C盘。
+    2.第一次cordova build ios 或者plugin add 时都会下载mpaas包，也大概需要10来分钟。
 ## 阶段
 本插件尚处于内部测试阶段，若有兴趣的可以直接使用，但暂不可直接用于生产环境。
